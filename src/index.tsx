@@ -15,6 +15,8 @@ console.log(result[0] === "hello");
 console.log(result[1] === "my");
 console.log(result[2] === "friend")
 
+var a = sum;
+
 root.render(
   <React.StrictMode>
     <App />
