@@ -8,8 +8,9 @@ setTimeout(callback, 1000)*/
 
 
 export const User = () => {
-    const deleteUser = (e: MouseEvent<HTMLButtonElement>) => {
+    const deleteUser = (event: MouseEvent<HTMLButtonElement>) => {
         alert('delete')
+
     }
 
     const saveUser = () => {
@@ -27,7 +28,7 @@ export const User = () => {
                   onBlur={focusLocsHandler}>
             Myr-myr</textarea>
         <input/>
-        <div onClick={deleteUser}>delete</div>
-        <div onClick={saveUser}>save</div>
+        <button onClick={deleteUser}>delete</button>
+        <button onClick={saveUser}>save</button>
     </div>
 }
