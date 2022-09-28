@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {splitIntoWords} from "./01-hello-tests/01";
+import {User} from "./06/06";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,11 +16,10 @@ console.log(result[0] === "hello");
 console.log(result[1] === "my");
 console.log(result[2] === "friend")
 
-let a = sum;
 
 root.render(
   <React.StrictMode>
-    <App />
+    <User />
   </React.StrictMode>
 );
 
