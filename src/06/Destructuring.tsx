@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ManType2} from "./destructuring.test";
 
 type PropsType2 = {
     title: string,
     man: ManType2
+    food: Array<string>
+    car: {model: string}
 }
 
-export const ManComponent: React.FC<PropsType2> = (props) => {
+function useDmState(m: string) {
+    return [m, function (){}]
+}
+
+export const ManComponent: React.FC<PropsType2> = ({title, man, ...props}) => {
+
+    const [message, setMessage] = useDmState('Hello')
+
     return <div>
-        <h1>{props.title}</h1>
+        <h1>{title}</h1>
         <hr/>
         <div>
-            {props.man.name}
+            {man.name}
+        </div>
+        <div>
+            {props.car.model}
         </div>
     </div>
 }
