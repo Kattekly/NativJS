@@ -1,4 +1,4 @@
-import React, {MouseEvent} from 'react';
+import React, {ChangeEvent, MouseEvent} from 'react';
 
 /*const callback = () => {
     alert('hey')
@@ -9,8 +9,8 @@ setTimeout(callback, 1000)*/
 
 export const User = () => {
     const deleteUser = (event: MouseEvent<HTMLButtonElement>) => {
-        alert('delete')
 
+        alert(event.currentTarget.name)
     }
 
     const saveUser = () => {
@@ -23,12 +23,16 @@ export const User = () => {
         console.log('focys')
     }
 
+    const onAgeChanged = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log('age ' + event.currentTarget.value)
+    }
+
     return <div>
         <textarea onChange={onNameChanged}
                   onBlur={focusLocsHandler}>
             Myr-myr</textarea>
-        <input/>
-        <button onClick={deleteUser}>delete</button>
-        <button onClick={saveUser}>save</button>
+        <input onChange={onAgeChanged} type={'number'}/>
+        <button name='del' onClick={deleteUser}>x</button>
+        <button name='sss' onClick={deleteUser}>x</button>
     </div>
 }
