@@ -13,9 +13,12 @@ export const User = () => {
     const saveUser = () => {
         alert('save')
     }
+const onNameChanged = () => {
+    console.log('name')
+}
+    return <div> <textarea onChange={onNameChanged}> Myr-myr</textarea>
 
-    return <div>Myr-myr
-        <button onClick={deleteUser}>delete</button>
-        <button onClick={saveUser}>save</button>
+        <div onClick={deleteUser}>delete</div>
+        <div onClick={saveUser}>save</div>
     </div>
 }
