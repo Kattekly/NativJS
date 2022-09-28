@@ -1,6 +1,6 @@
 
 
-type ManType2 = {
+export type ManType2 = {
     name: string
     age: number
     lessons: Array<{title: string}>,
