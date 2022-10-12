@@ -8,12 +8,18 @@ type UserType = {
 }
 
 test ("test", () => {
-    let user: UserType = {
+    let users = [{
         name: "Kate",
         age: 26
-    }
+    },
+        {
+            name: "Kate",
+            age: 26
+        }
+    ]
 
-    increateUser(user)
+    var admin = users
+    admin.push({name: "hhh", age: 10})
 
-    expect(user.age).toBe(27)
+
 })
