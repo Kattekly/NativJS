@@ -20,6 +20,6 @@ test ("test", () => {
 
     var admin = users
     admin.push({name: "hhh", age: 10})
-
+expect(users[2]).toEqual({name: "hhh", age: 10})
 
 })
