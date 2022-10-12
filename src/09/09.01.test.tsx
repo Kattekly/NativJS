@@ -18,8 +18,16 @@ test ("test", () => {
         }
     ]
 
-    var admin = users
+   let admin = users
     admin.push({name: "hhh", age: 10})
 expect(users[2]).toEqual({name: "hhh", age: 10})
 
+})
+
+
+
+test ("array test", () => {
+    let usersCount = 'Kate'
+    let adminCount = usersCount
+    expect(adminCount).toEqual('Kate')
 })
