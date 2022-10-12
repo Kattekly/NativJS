@@ -1,8 +1,13 @@
-function increateUser (user) {
+function increateUser (user: UserType) {
     user.age++
 }
 
-let user = {
+type UserType = {
+    name: string
+    age: number
+}
+
+let userss: UserType = {
     name: "Kate",
     age: 26
 }

@@ -3,6 +3,3 @@ let user = {
     age: 26
 }
 
-function increateUser (user) {
-    user.age++
-}
