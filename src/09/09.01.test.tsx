@@ -1,5 +1,5 @@
 function increateUser (user: UserType) {
-    user.age++
+    user.age = user.age + 1;
 }
 
 type UserType = {
@@ -7,8 +7,13 @@ type UserType = {
     age: number
 }
 
-let userss: UserType = {
-    name: "Kate",
-    age: 26
-}
+test ("test", () => {
+    let user: UserType = {
+        name: "Kate",
+        age: 26
+    }
 
+    increateUser(user)
+
+    expect(user.age).toBe(27)
+})
