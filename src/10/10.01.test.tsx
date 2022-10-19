@@ -31,6 +31,9 @@ test('change address', () => {
 
     const cutUser = moveUser(man, 'Kiev')
 
-    expect(man.hair).toBe(20)
-    expect(cutUser.hair).toBe(10)
+    expect(man).not.toBe(cutUser)
+    expect(man.address).not.toBe(cutUser.address)
+    expect(man.laptop).toBe(cutUser.laptop)
+    expect(cutUser.address.title).toBe('Kiev')
+
 })
