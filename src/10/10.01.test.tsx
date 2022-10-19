@@ -1,4 +1,4 @@
-import {icreaseAge, ManType} from "./10.01";
+import {icreaseAge, ManType, UserHasLaptopType} from "./10.01";
 
 
 test('referens type test', () => {
@@ -18,11 +18,14 @@ test('referens type test', () => {
 
 
 test('change address', () => {
-    let man: ManType = {
+    let man: UserHasLaptopType  = {
         name: 'Kate',
         hair: 20,
         address: {
             title: 'Covir'
+        },
+        laptop: {
+            title: 'GGGG'
         }
     }
 
