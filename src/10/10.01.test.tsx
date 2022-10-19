@@ -1,4 +1,4 @@
-import {icreaseAge, ManType, UserHasLaptopType} from "./10.01";
+import {icreaseAge, ManType, moveUser, UserHasLaptopType} from "./10.01";
 
 
 test('referens type test', () => {
@@ -6,7 +6,7 @@ test('referens type test', () => {
         name: 'Kate',
         hair: 20,
         address: {
-            title: 'Covir'
+            city: 'Covir'
         }
     }
 
@@ -22,7 +22,8 @@ test('change address', () => {
         name: 'Kate',
         hair: 20,
         address: {
-            title: 'Covir'
+            city: 'Covir',
+            house: 12
         },
         laptop: {
             title: 'GGGG'
@@ -34,6 +35,6 @@ test('change address', () => {
     expect(man).not.toBe(cutUser)
     expect(man.address).not.toBe(cutUser.address)
     expect(man.laptop).toBe(cutUser.laptop)
-    expect(cutUser.address.title).toBe('Kiev')
+    expect(cutUser.address.city).toBe('Kiev')
 
 })
