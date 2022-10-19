@@ -1,17 +1,22 @@
 import {ManType} from "./10.01";
 
-function icreaseAge(u: ManType) {
-    u.age = u.age + 1
+function icreaseAge(u: ManType, power: number) {
+    const copy = {
+        ...u
+    }
+    copy.hair = copy.hair / power
 }
 
 test('referens type test', () => {
     let man: ManType = {
         name: 'Kate',
-        age: 26,
+        hair: 20,
         address: {
             title: 'Covir'
         }
     }
 
-    icreaseAge(man)
+    icreaseAge(man, 2)
+
+    expect(man.hair).toBe(10)
 })

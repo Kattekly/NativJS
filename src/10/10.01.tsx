@@ -1,5 +1,5 @@
 export type ManType = {
     name: string
-    age: number
+    hair: number
     address: {title: string}
 }
