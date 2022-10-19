@@ -2,9 +2,9 @@ import {ManType} from "./10.01";
 
 function icreaseAge(u: ManType, power: number) {
     const copy = {
-        ...u
+        ...u, hair: u.hair / power
     }
-    copy.hair = copy.hair / power
+    return copy
 }
 
 test('referens type test', () => {
@@ -16,7 +16,8 @@ test('referens type test', () => {
         }
     }
 
-    icreaseAge(man, 2)
+   const cutUser = icreaseAge(man, 2)
 
-    expect(man.hair).toBe(10)
+    expect(man.hair).toBe(20)
+    expect(cutUser.hair).toBe(10)
 })
