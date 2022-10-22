@@ -63,11 +63,9 @@ export function moveUserToOtherHouse(u:UserHasLaptopType & UserWithBooksType, ho
         }
     }
 }
-export function addNewBookUser(u:UserHasLaptopType & UserWithBooksType, books: Array<string>) {
+export function addNewBookUser(u:UserHasLaptopType & UserWithBooksType, newBooks: string) {
     return {
         ...u,
-        books: {
-            ...u.books, books: books
-        }
+        books: [...u.books, newBooks]
     }
 }

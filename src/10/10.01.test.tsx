@@ -135,12 +135,13 @@ test('add new book', () => {
         books: ['CSS', 'HTML', 'React']
     }
 
-    const copyMan = addNewBookUser(man, ['TS', 'Redux'])
+    const copyMan = addNewBookUser(man, 'TS')
 
     expect(man).not.toBe(copyMan)
     expect(man.address).toBe(copyMan.address)
     expect(man.books).not.toBe(copyMan.books)
-    expect(man.books).toBe(['CSS', 'HTML', 'React'])
+    expect(man.books.length).toBe(3)
     expect(copyMan.books[3]).toBe('TS')
-    expect(copyMan.books[4]).toBe('Redux')
+    expect(copyMan.books.length).toBe(4)
+
 })
