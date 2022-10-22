@@ -1,4 +1,5 @@
 import {
+    addNewBookUser,
     icreaseAge,
     ManType,
     moveUser, moveUserToOtherHouse,
@@ -119,3 +120,27 @@ test('update house number', () => {
     expect(man.books).toBe(copyMan.books)
 })
 
+test('add new book', () => {
+    let man: UserHasLaptopType & UserWithBooksType = {
+        name: 'Kate',
+        hair: 20,
+        address: {
+            city: 'Covir',
+            house: 12
+        },
+        laptop: {
+            title: 'Zenbook',
+            model: 'B23DZ'
+        },
+        books: ['CSS', 'HTML', 'React']
+    }
+
+    const copyMan = addNewBookUser(man, ['TS', 'Redux'])
+
+    expect(man).not.toBe(copyMan)
+    expect(man.address).toBe(copyMan.address)
+    expect(man.books).not.toBe(copyMan.books)
+    expect(man.books).toBe(['CSS', 'HTML', 'React'])
+    expect(copyMan.books[3]).toBe('TS')
+    expect(copyMan.books[4]).toBe('Redux')
+})

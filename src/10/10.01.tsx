@@ -63,3 +63,11 @@ export function moveUserToOtherHouse(u:UserHasLaptopType & UserWithBooksType, ho
         }
     }
 }
+export function addNewBookUser(u:UserHasLaptopType & UserWithBooksType, books: Array<string>) {
+    return {
+        ...u,
+        books: {
+            ...u.books, books: books
+        }
+    }
+}
