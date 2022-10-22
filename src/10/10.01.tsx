@@ -37,3 +37,11 @@ export function moveUser(u: UserHasLaptopType, city: string) {
      copy.address = {
          ...copy.address,
          city: city}*/
+export function upgradeUserLaptop(u:UserHasLaptopType,  laptop: string) {
+    return {
+        ...u,
+        laptop: {
+            ...u.laptop, title: laptop
+        }
+    }
+}
