@@ -54,3 +54,12 @@ export function upgradeManLaptopModel (u:UserHasLaptopType, model: string) {
         }
     }
 }
+
+export function moveUserToOtherHouse(u:UserHasLaptopType & UserWithBooksType, house: number) {
+    return {
+        ...u,
+        address: {
+            ...u.address, house: house
+        }
+    }
+}

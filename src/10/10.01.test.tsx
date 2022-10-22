@@ -1,7 +1,7 @@
 import {
     icreaseAge,
     ManType,
-    moveUser,
+    moveUser, moveUserToOtherHouse,
     upgradeManLaptopModel,
     upgradeUserLaptop,
     UserHasLaptopType,
@@ -95,7 +95,7 @@ test('update laptop model', () => {
 
 })
 
-test('update laptop model', () => {
+test('update house number', () => {
     let man: UserHasLaptopType & UserWithBooksType = {
         name: 'Kate',
         hair: 20,
@@ -110,13 +110,12 @@ test('update laptop model', () => {
         books: ['CSS', 'HTML', 'React']
     }
 
-    const copyMan = upgradeManLaptopModel(man, 'FFFF0')
+    const copyMan = moveUserToOtherHouse(man, 99)
 
     expect(man).not.toBe(copyMan)
-    expect(man.address).toBe(copyMan.address)
-    expect(man.laptop).not.toBe(copyMan.laptop)
-    expect(copyMan.laptop.model).toBe('FFFF0')
-    expect(man.laptop.model).toBe('B23DZ')
-
+    expect(man.address).not.toBe(copyMan.address)
+    expect(man.address.house).toBe(12)
+    expect(copyMan.address.house).toBe(99)
+    expect(man.books).toBe(copyMan.books)
 })
 
