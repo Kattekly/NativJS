@@ -21,6 +21,10 @@ export type SkillsManType = ManType & {
     skills: Array<number>
 }
 
+export type WithCompaniesType = {
+    companies: Array<{id: number, title: string}>
+}
+
 export function icreaseAge(u: ManType, power: number) {
     const copy = {
         ...u, hair: u.hair / power
@@ -104,5 +108,12 @@ export function removeBookUser (u: UserHasLaptopType & UserWithBooksType, book: 
     return {
         ...u,
         books: u.books.filter(b => b !== book)
+    }
+}
+
+export function addNewCompanyUser (u: UserHasLaptopType & UserWithBooksType & WithCompaniesType, newCompany:  {id: number, title: string}) {
+    return {
+        ...u,
+        companies: [...u.companies, newCompany]
     }
 }

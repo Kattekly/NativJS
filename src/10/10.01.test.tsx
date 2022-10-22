@@ -1,12 +1,12 @@
 import {
-    addNewBookUser,
+    addNewBookUser, addNewCompanyUser,
     icreaseAge,
     ManType,
     moveUser, moveUserToOtherHouse, removeBookUser, SkillsManType, updateBookUser, updateSkillsUser,
     upgradeManLaptopModel,
     upgradeUserLaptop,
     UserHasLaptopType,
-    UserWithBooksType
+    UserWithBooksType, WithCompaniesType
 } from "./10.01";
 
 
@@ -220,4 +220,30 @@ test('remove book', () => {
     expect(man.books.length).toBe(4)
     expect(copyMan.books.length).toBe(3)
     expect(copyMan.books[2]).toBe('React')
+})
+
+test('remove book', () => {
+    let man: UserHasLaptopType & UserWithBooksType & WithCompaniesType = {
+        name: 'Kate',
+        hair: 20,
+        address: {
+            city: 'Covir',
+            house: 12
+        },
+        laptop: {
+            title: 'Zenbook',
+            model: 'B23DZ'
+        },
+        books: ['CSS', 'HTML', 'JS', 'React'],
+        companies: [{id: 1, title: 'Epam'}, {id: 2, title: 'ÍT'}]
+    }
+
+    const copyMan = addNewCompanyUser(man, {id: 3, title: 'Arriva'})
+
+    expect(man).not.toBe(copyMan)
+    expect(man.address).toBe(copyMan.address)
+    expect(man.books).toBe(copyMan.books)
+    expect(man.companies.length).toBe(2)
+    expect(copyMan.companies.length).toBe(3)
+   expect(copyMan.companies[2].title).toBe('Arriva')
 })
