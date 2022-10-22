@@ -69,3 +69,16 @@ export function addNewBookUser(u:UserHasLaptopType & UserWithBooksType, newBooks
         books: [...u.books, newBooks]
     }
 }
+
+export function updateBookUser (u:UserHasLaptopType & UserWithBooksType, oldBooks: string, updateBooks: string) {
+    return {
+        ...u,
+        books: u.books.map(b => {
+            if (b === oldBooks) {
+return updateBooks
+            } else {
+                return b
+            }
+        })
+    }
+}
