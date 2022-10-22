@@ -99,3 +99,10 @@ export function updateSkillsUser (u: UserHasLaptopType & UserWithBooksType & Ski
         skills: u.skills.map(b => b === oldSkil ? newSkil: b)
     }
 }
+
+export function removeBookUser (u: UserHasLaptopType & UserWithBooksType, book: string) {
+    return {
+        ...u,
+        books: u.books.filter(b => b !== book)
+    }
+}

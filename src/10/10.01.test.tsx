@@ -2,7 +2,7 @@ import {
     addNewBookUser,
     icreaseAge,
     ManType,
-    moveUser, moveUserToOtherHouse, SkillsManType, updateBookUser, updateSkillsUser,
+    moveUser, moveUserToOtherHouse, removeBookUser, SkillsManType, updateBookUser, updateSkillsUser,
     upgradeManLaptopModel,
     upgradeUserLaptop,
     UserHasLaptopType,
@@ -195,4 +195,29 @@ test('update skills man', () => {
     expect(copyMan.skills[1]).toBe(32)
     expect(man.skills[1]).toBe(15)
 
+})
+
+test('remove book', () => {
+    let man: UserHasLaptopType & UserWithBooksType = {
+        name: 'Kate',
+        hair: 20,
+        address: {
+            city: 'Covir',
+            house: 12
+        },
+        laptop: {
+            title: 'Zenbook',
+            model: 'B23DZ'
+        },
+        books: ['CSS', 'HTML', 'JS', 'React']
+    }
+
+    const copyMan = removeBookUser(man, 'JS')
+
+    expect(man).not.toBe(copyMan)
+    expect(man.address).toBe(copyMan.address)
+    expect(man.books).not.toBe(copyMan.books)
+    expect(man.books.length).toBe(4)
+    expect(copyMan.books.length).toBe(3)
+    expect(copyMan.books[2]).toBe('React')
 })
