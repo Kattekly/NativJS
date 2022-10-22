@@ -2,7 +2,7 @@ import {
     addNewBookUser,
     icreaseAge,
     ManType,
-    moveUser, moveUserToOtherHouse, updateBookUser,
+    moveUser, moveUserToOtherHouse, SkillsManType, updateBookUser, updateSkillsUser,
     upgradeManLaptopModel,
     upgradeUserLaptop,
     UserHasLaptopType,
@@ -19,7 +19,7 @@ test('referens type test', () => {
         }
     }
 
-   const cutUser = icreaseAge(man, 2)
+    const cutUser = icreaseAge(man, 2)
 
     expect(man.hair).toBe(20)
     expect(cutUser.hair).toBe(10)
@@ -27,7 +27,7 @@ test('referens type test', () => {
 
 
 test('change address', () => {
-    let man: UserHasLaptopType  = {
+    let man: UserHasLaptopType = {
         name: 'Kate',
         hair: 20,
         address: {
@@ -49,7 +49,7 @@ test('change address', () => {
 })
 
 test('update laptop', () => {
-    let man: UserHasLaptopType  = {
+    let man: UserHasLaptopType = {
         name: 'Kate',
         hair: 20,
         address: {
@@ -73,7 +73,7 @@ test('update laptop', () => {
 })
 
 test('update laptop model', () => {
-    let man: UserHasLaptopType  = {
+    let man: UserHasLaptopType = {
         name: 'Kate',
         hair: 20,
         address: {
@@ -168,5 +168,31 @@ test('update new book', () => {
     expect(man.books).not.toBe(copyMan.books)
     expect(copyMan.books[3]).toBe('TS')
     expect(man.books.length).toBe(4)
+
+})
+
+test('update skills man', () => {
+    let man: UserHasLaptopType & UserWithBooksType & SkillsManType = {
+        name: 'Kate',
+        hair: 20,
+        address: {
+            city: 'Covir',
+            house: 12
+        },
+        laptop: {
+            title: 'Zenbook',
+            model: 'B23DZ'
+        },
+        books: ['CSS', 'HTML', 'React', 'JS'],
+        skills: [23, 15, 45, 98]
+    }
+
+    const copyMan = updateSkillsUser(man, 15, 32)
+
+    expect(man).not.toBe(copyMan)
+    expect(man.address).toBe(copyMan.address)
+    expect(man.books).toBe(copyMan.books)
+    expect(copyMan.skills[1]).toBe(32)
+    expect(man.skills[1]).toBe(15)
 
 })

@@ -17,6 +17,10 @@ export type UserWithBooksType = ManType & {
     books: Array<string>
 }
 
+export type SkillsManType = ManType & {
+    skills: Array<number>
+}
+
 export function icreaseAge(u: ManType, power: number) {
     const copy = {
         ...u, hair: u.hair / power
@@ -37,7 +41,7 @@ export function moveUser(u: UserHasLaptopType, city: string) {
     return copy
 }
 
-export function upgradeUserLaptop(u:UserHasLaptopType,  laptop: string) {
+export function upgradeUserLaptop(u: UserHasLaptopType, laptop: string) {
     return {
         ...u,
         laptop: {
@@ -46,7 +50,7 @@ export function upgradeUserLaptop(u:UserHasLaptopType,  laptop: string) {
     }
 }
 
-export function upgradeManLaptopModel (u:UserHasLaptopType, model: string) {
+export function upgradeManLaptopModel(u: UserHasLaptopType, model: string) {
     return {
         ...u,
         laptop: {
@@ -55,7 +59,7 @@ export function upgradeManLaptopModel (u:UserHasLaptopType, model: string) {
     }
 }
 
-export function moveUserToOtherHouse(u:UserHasLaptopType & UserWithBooksType, house: number) {
+export function moveUserToOtherHouse(u: UserHasLaptopType & UserWithBooksType, house: number) {
     return {
         ...u,
         address: {
@@ -63,22 +67,35 @@ export function moveUserToOtherHouse(u:UserHasLaptopType & UserWithBooksType, ho
         }
     }
 }
-export function addNewBookUser(u:UserHasLaptopType & UserWithBooksType, newBooks: string) {
+
+export function addNewBookUser(u: UserHasLaptopType & UserWithBooksType, newBooks: string) {
     return {
         ...u,
         books: [...u.books, newBooks]
     }
 }
 
-export function updateBookUser (u:UserHasLaptopType & UserWithBooksType, oldBooks: string, updateBooks: string) {
-    return {
+export function updateBookUser(u: UserHasLaptopType & UserWithBooksType, oldBooks: string, updateBooks: string) {
+   return {
+       ...u,
+       books: u.books.map(b => b === oldBooks ? updateBooks: b)
+   }
+
+   /* return {
         ...u,
         books: u.books.map(b => {
             if (b === oldBooks) {
-return updateBooks
+                return updateBooks
             } else {
                 return b
             }
         })
+    }*/
+}
+
+export function updateSkillsUser (u: UserHasLaptopType & UserWithBooksType & SkillsManType, oldSkil: number, newSkil: number) {
+    return {
+        ...u,
+        skills: u.skills.map(b => b === oldSkil ? newSkil: b)
     }
 }
