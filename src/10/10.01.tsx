@@ -10,6 +10,7 @@ export type UserHasLaptopType = ManType & {
 
 export type LaptopType = {
     title: string
+    model?: string
 }
 
 export function icreaseAge(u: ManType, power: number) {
@@ -31,17 +32,21 @@ export function moveUser(u: UserHasLaptopType, city: string) {
 
     return copy
 }
-    /* const copy = {
-         ...u
-     }
-     copy.address = {
-         ...copy.address,
-         city: city}*/
+
 export function upgradeUserLaptop(u:UserHasLaptopType,  laptop: string) {
     return {
         ...u,
         laptop: {
             ...u.laptop, title: laptop
+        }
+    }
+}
+
+export function upgradeManLaptopModel (u:UserHasLaptopType, model: string) {
+    return {
+        ...u,
+        laptop: {
+            ...u.laptop, model: model
         }
     }
 }
