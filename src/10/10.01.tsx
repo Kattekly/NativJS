@@ -1,11 +1,11 @@
 export type ManType = {
     name: string
     hair: number
-    address: {city: string, house?: number}
+    address: { city: string, house?: number }
 }
 
 export type UserHasLaptopType = ManType & {
-laptop: LaptopType
+    laptop: LaptopType
 }
 
 export type LaptopType = {
@@ -19,10 +19,21 @@ export function icreaseAge(u: ManType, power: number) {
     return copy
 }
 
-export function moveUser (u: UserHasLaptopType, city: string) {
+export function moveUser(u: UserHasLaptopType, city: string) {
+
     const copy = {
-        ...u
+        ...u,
+        address: {
+            ...u.address,
+            city: city
+        }
     }
-    copy.address = {...copy.address, city: city}
+
     return copy
 }
+    /* const copy = {
+         ...u
+     }
+     copy.address = {
+         ...copy.address,
+         city: city}*/
