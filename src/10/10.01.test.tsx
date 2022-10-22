@@ -1,4 +1,12 @@
-import {icreaseAge, ManType, moveUser, upgradeManLaptopModel, upgradeUserLaptop, UserHasLaptopType} from "./10.01";
+import {
+    icreaseAge,
+    ManType,
+    moveUser,
+    upgradeManLaptopModel,
+    upgradeUserLaptop,
+    UserHasLaptopType,
+    UserWithBooksType
+} from "./10.01";
 
 
 test('referens type test', () => {
@@ -86,3 +94,29 @@ test('update laptop model', () => {
     expect(man.laptop.model).toBe('B23DZ')
 
 })
+
+test('update laptop model', () => {
+    let man: UserHasLaptopType & UserWithBooksType = {
+        name: 'Kate',
+        hair: 20,
+        address: {
+            city: 'Covir',
+            house: 12
+        },
+        laptop: {
+            title: 'Zenbook',
+            model: 'B23DZ'
+        },
+        books: ['CSS', 'HTML', 'React']
+    }
+
+    const copyMan = upgradeManLaptopModel(man, 'FFFF0')
+
+    expect(man).not.toBe(copyMan)
+    expect(man.address).toBe(copyMan.address)
+    expect(man.laptop).not.toBe(copyMan.laptop)
+    expect(copyMan.laptop.model).toBe('FFFF0')
+    expect(man.laptop.model).toBe('B23DZ')
+
+})
+

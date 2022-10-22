@@ -13,6 +13,10 @@ export type LaptopType = {
     model?: string
 }
 
+export type UserWithBooksType = ManType & {
+    books: Array<string>
+}
+
 export function icreaseAge(u: ManType, power: number) {
     const copy = {
         ...u, hair: u.hair / power
