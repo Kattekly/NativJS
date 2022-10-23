@@ -121,6 +121,6 @@ export function addNewCompanyUser (u: UserHasLaptopType & UserWithBooksType & Wi
 export function updateNewCompanyUser (u: UserHasLaptopType & UserWithBooksType & WithCompaniesType, id: number, newName: string) {
     return {
         ...u,
-        companies: u.companies.map(b => b.id === id ? newName: b)
+        companies: u.companies.map(b => b.id === id ? {...b, title: newName}: b)
     }
 }
