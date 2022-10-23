@@ -1,6 +1,6 @@
 import {
     addNewBookUser,
-    addNewCompanyUser, AssitiativCompanyType,
+    addNewCompanyUser,
     icreaseAge,
     ManType,
     moveUser,
