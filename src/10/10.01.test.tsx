@@ -283,31 +283,18 @@ test('update company', () => {
 })
 
 test('update company2', () => {
-    let man: UserHasLaptopType & UserWithBooksType  = {
-        name: 'Kate',
-        hair: 20,
-        address: {
-            city: 'Covir',
-            house: 12
-        },
-        laptop: {
-            title: 'Zenbook',
-            model: 'B23DZ'
-        },
-        books: ['CSS', 'HTML', 'JS', 'React']
-    }
 
     let companies = {
         'Kate' : [{id: 1, title: 'Eпам'}, {id: 2, title: 'Google'}],
         'Marina' : [{id: 1, title: 'Fuck'}, {id: 2, title: 'ÍT'}]
     }
 
-    const copyMan = updateNewCompany(companies, 'Kate', 1, 'Epam')
+  const companyCopy = updateNewCompany(companies, 'Kate', 1, 'EPAM')
 
-    expect(man).not.toBe(copyMan)
-    expect(man.address).toBe(copyMan.address)
-    expect(man.books).toBe(copyMan.books)
-    expect(man.companies).not.toBe(copyMan.companies)
-    expect(man.companies[0].title).toBe('Eпам')
-    expect(copyMan.companies[0].title).toBe('Epam')
+
+    expect(companies).not.toBe(companyCopy)
+    expect(companies['Kate']).not.toBe(companyCopy['Kate'])
+    expect(companies['Marina']).toBe(companyCopy['Marina'])
+    expect(companies['Kate'][0].title).toBe('Eпам')
+    expect(companyCopy['Kate'][0].title).toBe('EPAM')
 })
