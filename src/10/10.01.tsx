@@ -22,8 +22,11 @@ export type SkillsManType = ManType & {
 }
 
 export type WithCompaniesType = {
-    companies: Array<{id: number, title: string}>
+    companies: Array<CompanyType>
 }
+
+type CompanyType = {id: number, title: string}
+
 
 export function icreaseAge(u: ManType, power: number) {
     const copy = {
@@ -123,4 +126,11 @@ export function updateNewCompanyUser (u: UserHasLaptopType & UserWithBooksType &
         ...u,
         companies: u.companies.map(b => b.id === id ? {...b, title: newName}: b)
     }
+}
+
+export function updateNewCompany (companies: {[key: string]: Array<CompanyType> }, userName: string, companyID: number, newTitle: string) {
+  let companyCopy = {...companies}
+    companyCopy[userName] = companyCopy[userName].map(c => c.id === companyID ? {...c, title: newTitle} : c)
+
+    return companyCopy
 }
