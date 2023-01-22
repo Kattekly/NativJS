@@ -4,7 +4,7 @@ export type StudentType = {
     age: number
     isActive: boolean
     address: AddressType
-technologies: Array<TechType>
+    technologies: Array<TechType>
 }
 type LocalSityType = {
     title: string
