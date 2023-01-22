@@ -5,7 +5,7 @@ let a: number;
 let b: number;
 let c: number;
 
- beforeEach(() =>{
+beforeEach(() => {
     a = 1
     b = 2
     c = 3
@@ -36,10 +36,10 @@ test("splitting into words should be correct", () => {
     const result1 = splitIntoWords(sent1);
     const result2 = splitIntoWords(sent2)
 
-expect(result1.length).toBe(3)
-expect(result1[0]).toBe("hello")
-expect(result1[1]).toBe("my")
-expect(result1[2]).toBe("friend")
+    expect(result1.length).toBe(3)
+    expect(result1[0]).toBe("hello")
+    expect(result1[1]).toBe("my")
+    expect(result1[2]).toBe("friend")
 
     expect(result2.length).toBe(5)
     expect(result2[0]).toBe("js")
